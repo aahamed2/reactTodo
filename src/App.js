@@ -1,24 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import Todos from './Todos';
+import db from './src/lol';
+
 
 function App() {
+
+  const [todos, setTodos] = useState([])
+  const [input, setInput] = useState('')
+
+  const handleTodo = (e) => {
+    e.preventDefault();
+    setTodos([...todos, input]);
+    setInput('')
+  };
+
+
+
+  useEffect(() => {
+
+
+    db.collection('todos').onSnapshot(snapshot => {
+      setTodos(snapshot.docs.map(doc=>doc.data().todo));
+      // console.log(snapshot.docs.map(doc=>doc.data()))
+
+    })
+  }, []);
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <form >
+          <h1>To Do List from React! </h1>
+          <input value={input} onChange={e => setInput(e.target.value)} />
+          <button onClick={handleTodo}>Submit</button>
+
+          {
+            todos.map(todo =>
+              <Todos list={todo} />
+            )
+          }
+
+        </form>
+
+      </div>
+
+    </>
   );
 }
 
