@@ -4,6 +4,7 @@ function Todos({list}) {
     return (
         <div>
             <li>{list}</li>
+            
         </div>
     )
 }

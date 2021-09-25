@@ -10,6 +10,7 @@ function App() {
   const [input, setInput] = useState('')
 
   const handleTodo = (e) => {
+    
     e.preventDefault();
     setTodos([...todos, input]);
     setInput('')
