@@ -1,39 +1,70 @@
 .App {
   text-align: center;
+font-family: Marker Felt, fantasy;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App h1{
+font-size: 40px;
+font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+
+
+.App form{
+
+  padding: 10px;
+}
+
+.App button{
+
+margin-bottom: 20px;
+font-weight: bold;
+height: 30px;
+}
+
+
+.todo-main{
+display: grid;
+
+grid-template-columns: 3fr 1fr 1fr;
+grid-gap: 5px;
+box-sizing: border-box;
+width: 100%;
+padding: 10px;
+
+/* 
+grid-template-columns: fit-content(50%) fit-content(50%) 2fr;
+align-content: center; */
+
+}
+
+
+
+.todo-main li{
+  padding: 10px;
+  font-size: 1.3em;
+  text-align: center;
+
   }
   
-}
+  
+  .todo-main button{
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+    border-radius: 4px;
+    font-size: 0.9em;
+    max-width: 9em;
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+    
+  
+    }
+    
+    
+
+    .update-btn{
+
+      font-weight: bold;
+    }
